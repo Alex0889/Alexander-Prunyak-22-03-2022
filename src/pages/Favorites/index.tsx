@@ -20,7 +20,7 @@ const Favorites: FC = () => {
   const {
     favorites: { favorites },
   } = useAppSelector();
-  const [favoritesCities, setFavoritesCities] = useState<IFavorites[]>(storage.getItem('favorites') || []);
+  const [favoritesCities] = useState<IFavorites[]>(storage.getItem('favorites') || []);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
