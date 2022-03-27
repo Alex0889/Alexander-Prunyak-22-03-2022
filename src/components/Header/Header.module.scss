@@ -1,0 +1,56 @@
+@import "src/prebuild/scss/mixins";
+@import "src/prebuild/scss/variables";
+
+.root {
+  position: fixed;
+  top: 0;
+  width: 100%;
+
+  padding: 20px 0;
+
+  background-color: var(--body-background-default);
+
+  opacity: .95;
+  z-index: 999;
+
+  &__content {
+    @include container();
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__wrapper {
+    display: flex;
+    align-items: center;
+
+    cursor: pointer;
+  }
+
+  &__logo {
+    margin-right: 20px;
+
+    svg {
+      height: 65px;
+      width: 65px;
+    }
+  }
+
+  &__title {
+    @include applyPreset(createPreset(25px, 700, 30px));
+
+    text-transform: uppercase;
+    color: $primary;
+  }
+
+}
+
+.actions {
+  display: none;
+
+  @include breakpoint(sm) {
+    display: flex;
+  }
+}

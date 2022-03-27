@@ -1,0 +1,49 @@
+@import "src/prebuild/scss/variables";
+@import "src/prebuild/scss/mixins";
+
+.root {
+  position: relative;
+
+  display: grid;
+  gap: 30px;
+  grid-template-columns: 100%;
+  grid-template-areas:
+      "Actions"
+      "ThisDay"
+      "ThisDayInfo"
+      "Week";
+
+  @include breakpoint(sm) {
+    grid-template-areas:
+      "ThisDay"
+      "ThisDayInfo"
+      "Week";
+  }
+
+  @include breakpoint(md) {
+    grid-template-columns: 400px 1fr;
+    grid-template-rows: unset;
+    grid-template-areas:
+      "ThisDay   ThisDayInfo"
+      "Week      Week";
+  }
+
+  &__loader {
+    position: absolute;
+    height: 100vh !important;
+  }
+}
+
+.popup {
+  display: grid;
+  grid-template-columns: 30% 1fr;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+
+  @include breakpoint(sm) {
+    display: none;
+  }
+}

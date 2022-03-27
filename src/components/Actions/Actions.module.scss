@@ -1,0 +1,45 @@
+@import "src/prebuild/scss/variables";
+
+.root {
+  grid-area: Actions;
+
+  position: relative;
+
+  align-items: center;
+
+  &__theme, &__lang, &__favorite {
+    margin-right: 20px;
+
+    border: none;
+
+    background-color: inherit;
+
+    cursor: pointer;
+  }
+
+  &__lang {
+    text-transform: uppercase;
+
+    color: var(--text-color-default);
+  }
+
+  &__autocomplete {
+    position: absolute;
+    width: 60%;
+    padding: 10px;
+    border: 1px solid rgba($color-gray, .3);
+    border-radius: $border-radius;
+    box-shadow: $card-shadow;
+    background-color: var(--component-background-default);
+    color: var(--text-color-default);
+    outline: 1px solid rgba($color-gray, .1);
+
+    &_item:not(:last-child) {
+      margin-bottom: 5px;
+    }
+
+    &_item {
+      cursor: pointer;
+    }
+  }
+}

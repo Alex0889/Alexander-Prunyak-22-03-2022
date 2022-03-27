@@ -1,0 +1,29 @@
+@import "src/prebuild/scss/variables";
+@import "src/prebuild/scss/mixins";
+
+.root {
+  @include applyPreset(createPreset(14px, 500, 20px));
+
+  border: none;
+  border-radius: 5px;
+  box-shadow: 2px 5px 25px -3px rgba($color-card-shadow, .25);
+
+  padding: 5px 10px;
+
+  background-color: var(--component-backgroud-default);
+  color: var(--text-color-default);
+
+  cursor: pointer;
+
+  transition: .2s;
+  &:hover {
+    background-color: $primary;
+    color: $color_white;
+  }
+
+  @include breakpoint(sm) {
+    @include applyPreset(createPreset(18px, 500, 22px));
+
+    padding: 9px 20px;
+  }
+}

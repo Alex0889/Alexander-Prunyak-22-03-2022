@@ -1,0 +1,42 @@
+@import "variables";
+
+@mixin breakpoint($breakpoint-name) {
+  $min-width: map-get($breakpoints, $breakpoint-name);
+  @if ($min-width != null) {
+    @media screen and (min-width: $min-width) {
+      @content
+    }
+  } @else {
+    @debug "Breakpoint is not described!"
+  }
+}
+
+@mixin container() {
+  margin-right: auto;
+  margin-left: auto;
+
+  @each $breakpoint-name, $_ in $breakpoints {
+    @include breakpoint(($breakpoint-name)) {
+      $width: map-get($container-widths, $breakpoint-name);
+
+      width: $width;
+      min-width: $width;
+      max-width: $width;
+    }
+  }
+}
+
+@function createPreset($font-size, $font-weight, $line-height, $letter-spacing: normal) {
+  @return (
+    font-size: $font-size,
+    font-weight: $font-weight,
+    line-height: $line-height,
+    letter-spacing: $letter-spacing
+  );
+}
+
+@mixin applyPreset($preset) {
+  @each $prop-name, $prop-value in $preset {
+    #{$prop-name}: $prop-value;
+  }
+}

@@ -1,0 +1,113 @@
+@import "../../prebuild/scss/variables";
+@import "../../prebuild/scss/mixins";
+
+.root {
+  grid-area: ThisDay;
+
+  &.popup {
+    grid-area: unset;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  &__wrapper {
+    z-index: 1;
+  }
+
+  &__top {
+    display: grid;
+    grid-template-columns: 1fr 119px;
+    margin-bottom: 30px;
+
+    img {
+      position: absolute;
+      right: 0;
+
+      width: 50%;
+
+      @include breakpoint(sm) {
+        width: 60%;
+      }
+
+      @include breakpoint(md) {
+        width: 70%;
+      }
+    }
+
+    &.popup {
+      grid-template-columns: 100%;
+      margin-bottom: 0;
+
+      svg {
+        position: absolute;
+        top: 0;
+        right: 0;
+
+        width: 119px;
+        height: 199px;
+
+        margin: 12px 0;
+
+        @include breakpoint(sm) {
+          position: relative;
+
+          width: 53px;
+          height: 53px;
+        }
+      }
+    }
+  }
+
+  &__temp {
+    @include applyPreset(createPreset(96px, 500, 117px));
+
+    color: $primary;
+
+    &.popup {
+      @include applyPreset(createPreset(60px, 500, 73px));
+    }
+  }
+
+  &__day {
+    @include applyPreset(createPreset(40px, 500, 40px));
+
+    color: var(--text-color-default);
+
+    &.popup {
+      @include applyPreset(createPreset(25px, 500, 30px));
+    }
+  }
+
+  &__bottom *:not(:last-child) {
+    margin-bottom: 14px;
+  }
+
+  &__time, &__city, &__date {
+    @include applyPreset(createPreset(25px, 500, 30px));
+
+    display: flex;
+
+    color: $color-gray;
+
+    &.popup {
+      @include applyPreset(createPreset(15px, 500, 18px));
+
+      margin-bottom: 7px;
+    }
+  }
+
+  &__favorite {
+    height: 24px;
+
+    align-items: center;
+
+    margin-left: 20px;
+
+    border: none;
+
+    background-color: inherit;
+
+    cursor: pointer;
+  }
+}

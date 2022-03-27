@@ -1,0 +1,17 @@
+@import "../../prebuild/scss/variables";
+@import "../../prebuild/scss/mixins";
+
+.root {
+
+  &__back {
+    margin-bottom: 20px;
+  }
+
+  &__list {
+    grid-template-columns: repeat(7, minmax(150px, 200px));
+  }
+
+  &__dayCard {
+    cursor: pointer;
+  }
+}

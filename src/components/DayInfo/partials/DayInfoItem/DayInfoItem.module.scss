@@ -1,0 +1,47 @@
+@import "../../../../prebuild/scss/variables";
+@import "../../../../prebuild/scss/mixins";
+
+.root {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 20px;
+  align-items: center;
+
+  z-index: 1;
+
+  @include breakpoint(sm) {
+    grid-template-columns: 180px 1fr;
+  }
+
+  &__wrapper {
+    display: grid;
+    gap: 20px;
+    align-items: center;
+    grid-template-columns: 38px 1fr;
+  }
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 38px;
+    width: 38px;
+
+    border: none;
+    border-radius: 50%;
+
+    box-shadow: 1px 4px 10px -1px rgba($primary, .2);
+
+    background-color: $color-white;
+  }
+
+  &__name {
+    font-weight: 500;
+    color: $color-gray;
+  }
+
+  &__value {
+    color: var(--text-color-default);
+  }
+}

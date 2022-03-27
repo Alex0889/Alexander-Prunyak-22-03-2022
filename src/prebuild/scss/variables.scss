@@ -1,0 +1,45 @@
+$primary: #4793FF;
+$color-black: #000;
+$color-white: #fff;
+$color-gray: #939CB0;
+$color-card-shadow: #B4B4B4;
+$color-background-dark: #0D1117;
+$color-component-dark: #4F4F4F;
+$color-dayCard-dark: #2E3035;
+
+$body-background-dark: $color-background-dark;
+$body-background-light: $color-white;
+
+$component-background-dark: $color-component-dark;
+$component-background-light: $color-white;
+
+$dayCard-background-dark: $color-dayCard-dark;
+$dayCard-background-light: rgba($primary, .2);
+
+$text-color-dark: $color-white;
+$text-color-light: $color-black;
+
+$dayCard-boxShadow-light: 0 3px 20px rgba($color-gray, .3);
+$dayCard-boxShadow-dark: 0 3px 20px rgba($color-black, .3);
+
+$card-shadow: 2px 5px 25px -3px rgba($color-card-shadow, .25);
+
+$border-radius: 20px;
+
+$breakpoints: (
+  xs: 320px,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1280px,
+  xxl: 1440px,
+);
+
+$container-widths: (
+  xs: calc(100% - 24px),
+  sm: calc(100% - 32px),
+  md: calc(100% - 48px),
+  lg: calc(100% - 64px),
+  xl: 1140px,
+  xxl: 1240px,
+);

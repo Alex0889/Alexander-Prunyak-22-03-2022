@@ -1,0 +1,19 @@
+@import "../../scss/mixins";
+
+.root {
+  @include container();
+
+  position: relative;
+
+  flex: 1 0;
+
+  padding-bottom: 50px;
+
+  &.hasHeader {
+    padding-top: 119px;
+  }
+
+  &.hasFooter {
+    padding-bottom: 20px;
+  }
+}

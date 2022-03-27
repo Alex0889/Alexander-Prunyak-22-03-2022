@@ -1,0 +1,54 @@
+@import "src/prebuild/scss/variables";
+@import "src/prebuild/scss/mixins";
+
+.root {
+  $this: &;
+  grid-area: ThisDayInfo;
+
+  display: grid;
+
+  padding: 15px;
+
+  @include breakpoint(sm) {
+    padding: 40px;
+  }
+
+  &.popup {
+    grid-area: unset;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+    #{$this}__items > div {
+      grid-template-columns: unset;
+      gap: unset;
+    }
+    @include breakpoint(sm) {
+    }
+  }
+
+  &__items {
+    display: grid;
+    gap: 10px;
+    grid-template-rows: repeat(4, 50px);
+    align-content: space-between;
+
+    @include breakpoint(sm) {
+      grid-template-rows: repeat(4, 38px);
+    }
+  }
+
+  &__items div:last-child {
+    margin-bottom: 0;
+  }
+
+  &__img {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    @include breakpoint(lg) {
+      display: block;
+    }
+  }
+}
