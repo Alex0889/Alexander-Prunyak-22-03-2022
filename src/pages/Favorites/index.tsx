@@ -10,11 +10,8 @@ import { useAppDispatch, useAppSelector } from 'app/hooks';
 import { changeCity } from 'app/slices/geolocation';
 import DayCard from '../../components/DayCard';
 import { getFavorites } from '../../app/slices/favorites/thunks/getFavorites';
-
-interface IFavorites {
-  readonly key: string;
-  readonly city: string;
-}
+import { IFavorites } from '../../prebuild/interfaces/IFavorites';
+import Loader from '../../components/Loader';
 
 const Favorites: FC = () => {
   const {
@@ -36,7 +33,7 @@ const Favorites: FC = () => {
 
   useEffect(() => {
     Boolean(favoritesCities) && dispatch(getFavorites());
-  }, [dispatch]);
+  }, [dispatch, favoritesCities]);
 
   return (
     <Page title='React Weather App | Favorites' className={s.root} hasHeader>
@@ -44,6 +41,7 @@ const Favorites: FC = () => {
         isLoading={favorites.isLoading}
         isEmpty={false}
         error={favorites.error}
+        loadingSlot={<Loader />}
       >
         <Button className={s.root__back} onClick={handleGoBack}>
           &larr; Go back
@@ -56,7 +54,8 @@ const Favorites: FC = () => {
                   key={favorite!.key}
                   className={s.root__dayCard}
                   day={favorite!.value.DailyForecasts[0]}
-                  city={(storage.getItem('favorites') as { key: string, city: string }[]).find(obj => obj.key === favorite!.key)!.city}
+                  city={
+                    (storage.getItem('favorites') as IFavorites[]).find(obj => obj.key === favorite!.key)!.city}
                   onClick={handleClickFavorite}
                 />
               ))}

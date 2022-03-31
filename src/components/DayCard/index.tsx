@@ -4,7 +4,7 @@ import s from './DayCard.module.scss';
 
 import { unix } from 'dayjs';
 import { IWithTranslate } from 'prebuild/interfaces/IWithTranslate';
-import { DailyForecast } from 'app/interfaces/IForecas';
+import { DailyForecast } from 'app/interfaces/IForecast';
 import Card from '../../prebuild/components/Card';
 import { convertToCelsius } from '../../prebuild/helpers/convertToCelsius';
 import withTranslate from '../WithTranslate';

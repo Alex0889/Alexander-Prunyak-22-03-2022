@@ -11,12 +11,12 @@ import { windSpeedPicker } from 'prebuild/helpers/windSpeedPicker';
 // import { IDaily } from 'app/interfaces/IDaily';
 import withTranslate from '../WithTranslate';
 import { IWithTranslate } from 'prebuild/interfaces/IWithTranslate';
-import { ICurren } from '../../app/interfaces/ICurren';
+import { ICurrentWeater } from '../../app/interfaces/ICurrentWeater';
 
 type DayInfoProps = {
   readonly className?: string;
   readonly isPopup?: boolean;
-  readonly weather: ICurren;
+  readonly weather: ICurrentWeater;
 };
 
 const DayInfo: FC<DayInfoProps & IWithTranslate> = (

@@ -43,7 +43,7 @@ const HomePage: FC = () => {
 
   useEffect(() => {
     geolocation();
-  }, []);
+  }, [geolocation]);
 
   return (
     <Page title='React Weather App' className={s.root} hasHeader>

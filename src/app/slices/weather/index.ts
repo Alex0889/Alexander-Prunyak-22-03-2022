@@ -4,17 +4,17 @@ import { getForecast } from './thunk/getForecast';
 // import { IEntity } from '../../interfaces/IEntity';
 // import { IForecast } from '../../interfaces/IForecast';
 import { toast } from 'react-toastify';
-import { ICurren } from '../../interfaces/ICurren';
-import { IForecas } from '../../interfaces/IForecas';
+import { ICurrentWeater } from '../../interfaces/ICurrentWeater';
+import { IForecast } from '../../interfaces/IForecast';
 
 interface WeatherState {
   readonly current: {
-    readonly weather: ICurren[] | null,
+    readonly weather: ICurrentWeater[] | null,
     readonly isLoading: boolean,
     readonly error: string | undefined,
   };
   readonly forecast: {
-    readonly weather: IForecas | null,
+    readonly weather: IForecast | null,
     readonly isLoading: boolean,
     readonly error: string | undefined,
   };

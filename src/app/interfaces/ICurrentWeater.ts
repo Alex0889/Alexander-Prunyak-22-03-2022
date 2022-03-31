@@ -1,4 +1,4 @@
-export interface ICurren {
+export interface ICurrentWeater {
   EpochTime: number;
   WeatherText: string;
   WeatherIcon: number;

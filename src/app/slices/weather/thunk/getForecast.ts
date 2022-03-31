@@ -5,7 +5,7 @@ import { Exception } from '../../../createException';
 import { getWeather } from './getWeather';
 // import { RootState } from '../../../store';
 // import { IEntity } from '../../../interfaces/IEntity';
-import { IForecas } from '../../../interfaces/IForecas';
+import { IForecast } from '../../../interfaces/IForecast';
 import { Weather5DaysApi} from './WeatherApi';
 import { RootState } from '../../../store';
 
@@ -18,7 +18,7 @@ export const getForecast = createAsyncThunk(
          }) => {
     const { geolocation: { key } } = getState() as RootState;
     await dispatch(getWeather());
-    return await Weather5DaysApi.GET<IForecas>(key,
+    return await Weather5DaysApi.GET<IForecast>(key,
       [
         { name: 'apikey', value: process.env.REACT_APP_API_KEY as string },
         { name: 'details', value: true },

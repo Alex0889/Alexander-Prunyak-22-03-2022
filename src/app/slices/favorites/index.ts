@@ -1,14 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { toast } from 'react-toastify';
 import { getFavorites } from './thunks/getFavorites';
-import { IForecas } from '../../interfaces/IForecas';
+import { IForecast } from '../../interfaces/IForecast';
 
 interface favoritesState {
   readonly favorites: {
     readonly favorites: (
       {
         key: string;
-        value: IForecas
+        value: IForecast
       } | null)[],
     readonly isLoading: boolean,
     readonly error: string | undefined,

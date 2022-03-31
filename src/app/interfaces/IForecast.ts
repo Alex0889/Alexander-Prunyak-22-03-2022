@@ -1,12 +1,34 @@
-import { ICurrent } from './ICurrent';
-import { IDaily } from './IDaily';
+export interface Minimum {
+  Value: number;
+  Unit: string;
+  UnitType: number;
+}
+
+export interface Maximum {
+  Value: number;
+  Unit: string;
+  UnitType: number;
+}
+
+export interface Temperature {
+  Minimum: Minimum;
+  Maximum: Maximum;
+}
+
+export interface Day {
+  Icon: number;
+  IconPhrase: string;
+  HasPrecipitation: boolean;
+  PrecipitationType: string;
+  PrecipitationIntensity: string;
+}
+
+export interface DailyForecast {
+  EpochDate: number;
+  Temperature: Temperature;
+  Day: Day;
+}
 
 export interface IForecast {
-  readonly lat: number;
-  readonly lon: number;
-  readonly timezone: string;
-  readonly current: ICurrent;
-  readonly hourly: ICurrent[];
-  readonly daily: IDaily[];
-  readonly cod?: number;
+  DailyForecasts: DailyForecast[];
 }

@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import s from './TheDay.module.scss';
 import clsx from 'clsx';
 import dayjs from 'dayjs';
@@ -10,7 +10,8 @@ import GlobalSvgSelector from 'prebuild/assets/icons/GlobalSvgSelector';
 import withTranslate from '../WithTranslate';
 import { IWithTranslate } from '../../prebuild/interfaces/IWithTranslate';
 import { storage } from '../../prebuild/helpers/storage';
-import { ICurren } from '../../app/interfaces/ICurren';
+import { ICurrentWeater } from '../../app/interfaces/ICurrentWeater';
+import { IFavorites } from '../../prebuild/interfaces/IFavorites';
 
 dayjs.extend(utc);
 dayjs.extend(timezone);
@@ -18,7 +19,7 @@ dayjs.extend(timezone);
 type TheDayProps = {
   readonly className?: string;
   readonly isPopup?: boolean;
-  readonly weather: ICurren;
+  readonly weather: ICurrentWeater;
   readonly cityKey: string;
   readonly cityName: string;
   readonly timezone?: string;
@@ -36,11 +37,15 @@ const TheDay: FC<TheDayProps & IWithTranslate> = (
   }) => {
   const [isInFavorites, setIsInFavorites] = useState<boolean>(
     Boolean(storage.getItem('favorites')) &&
-            Boolean((storage.getItem('favorites') as { key: string, city: string }[]).find(item => item.key === cityKey))
+    Boolean((storage.getItem('favorites') as IFavorites[]).find(item => item.key === cityKey)),
   );
 
+  useEffect(() => {
+    setIsInFavorites(Boolean((storage.getItem('favorites') as IFavorites[]).find(item => item.key === cityKey)));
+  }, [cityKey]);
+
   const handleClickOnFavorites = () => {
-    const storageLocal = (storage.getItem('favorites') as { key: string, city: string }[]) || [];
+    const storageLocal = (storage.getItem('favorites') as IFavorites[]) || [];
     if (!isInFavorites) {
       storageLocal.push({ key: cityKey, city: cityName });
       storage.setItem('favorites', storageLocal);
