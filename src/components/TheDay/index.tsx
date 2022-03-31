@@ -41,6 +41,8 @@ const TheDay: FC<TheDayProps & IWithTranslate> = (
   );
 
   useEffect(() => {
+    Boolean(cityKey) &&
+    Boolean(storage.getItem('favorites')) &&
     setIsInFavorites(Boolean((storage.getItem('favorites') as IFavorites[]).find(item => item.key === cityKey)));
   }, [cityKey]);
 
