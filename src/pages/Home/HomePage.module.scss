@@ -21,11 +21,15 @@
   }
 
   @include breakpoint(md) {
-    grid-template-columns: 400px 1fr;
+    grid-template-columns: 320px 1fr;
     grid-template-rows: unset;
     grid-template-areas:
       "ThisDay   ThisDayInfo"
       "Week      Week";
+  }
+
+  @include breakpoint(lg) {
+    grid-template-columns: 400px 1fr;
   }
 
   &__loader {

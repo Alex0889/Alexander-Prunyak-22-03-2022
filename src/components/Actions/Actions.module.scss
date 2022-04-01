@@ -22,24 +22,4 @@
 
     color: var(--text-color-default);
   }
-
-  &__autocomplete {
-    position: absolute;
-    width: 60%;
-    padding: 10px;
-    border: 1px solid rgba($color-gray, .3);
-    border-radius: $border-radius;
-    box-shadow: $card-shadow;
-    background-color: var(--component-background-default);
-    color: var(--text-color-default);
-    outline: 1px solid rgba($color-gray, .1);
-
-    &_item:not(:last-child) {
-      margin-bottom: 5px;
-    }
-
-    &_item {
-      cursor: pointer;
-    }
-  }
 }

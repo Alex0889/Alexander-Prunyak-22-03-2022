@@ -12,7 +12,7 @@
     grid-auto-flow: column;
     overflow: auto;
 
-    justify-content: space-evenly;
+    justify-content: space-between;
 
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
@@ -20,6 +20,10 @@
     transform: rotateX(180deg);
 
     box-shadow: 2px -5px 25px -3px rgba($color-card-shadow, .25);
+
+    @include breakpoint(lg) {
+      justify-content: space-evenly;
+    }
 
     &::-webkit-scrollbar {
       height: 8px;
