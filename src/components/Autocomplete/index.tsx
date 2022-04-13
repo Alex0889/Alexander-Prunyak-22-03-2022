@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FC, FormEvent, useEffect, useRef, useState } from 'react';
+import React, { ChangeEvent, FC, FormEvent, useCallback, useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import s from './Autocomplete.module.scss';
 import _debounce from 'lodash.debounce';
@@ -56,7 +56,10 @@ const Autocomplete: FC<AutocompleteProps & IWithTranslate> = (
     setCity('');
   };
 
-  const delayedQuery = _debounce(city => dispatch(getAutocomplete(city)), 1000);
+  //eslint-disable-next-line react-hooks/exhaustive-deps
+  const delayedQuery = useCallback(
+    _debounce(value => dispatch(getAutocomplete(value)), 1000),
+    []);
 
   const handleInput = (e: ChangeEvent<HTMLInputElement>) => {
     setCity(e.target.value);
